@@ -1,6 +1,5 @@
 const mysql = require('mysql2/promise');
 
-// Sukuriam connection pool - tai leidžia naudoti kelias DB jungtis vienu metu
 const pool = mysql.createPool({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
