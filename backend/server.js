@@ -16,6 +16,8 @@ app.get('/api/health', (req, res) => {
     res.json({ status: 'ok', message: 'Server veikia' });
 });
 
+app.use('/api/auth', require('./routes/auth'));
+
 app.use((req, res) => {
     res.status(404).json({ error: 'Endpoint nerastas' });
 });
