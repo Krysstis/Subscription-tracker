@@ -17,6 +17,7 @@ app.get('/api/health', (req, res) => {
 });
 
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/subscriptions', require('./routes/subscriptions'));
 
 app.use((req, res) => {
     res.status(404).json({ error: 'Endpoint nerastas' });
