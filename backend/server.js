@@ -1,7 +1,10 @@
 require('dotenv').config();
 const express = require('express');
+const https = require('https');
 const cors = require('cors');
 const morgan = require('morgan');
+const fs = require('fs');
+const path = require('path');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -24,6 +27,11 @@ app.use((req, res) => {
     res.status(404).json({ error: 'Endpoint nerastas' });
 });
 
-app.listen(PORT, () => {
-    console.log(`Serveris veikia: http://localhost:${PORT}`);
+const sslOptions = {
+    key: fs.readFileSync(path.join(__dirname, 'certs', 'key.pem')),
+    cert: fs.readFileSync(path.join(__dirname, 'certs', 'cert.pem'))
+};
+
+https.createServer(sslOptions, app).listen(PORT, () => {
+    console.log(`Serveris veikia: https://localhost:${PORT}`);
 });
