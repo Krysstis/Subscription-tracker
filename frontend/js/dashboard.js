@@ -8,6 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
     loadSubscriptions();
 });
 
+function onLangChange() {
+    loadUpcoming();
+    loadSubscriptions();
+}
+
 async function loadStats() {
     try {
         const data = await api.get('/stats');
@@ -31,7 +36,7 @@ async function loadUpcoming() {
 
         data.forEach(sub => {
             const li = document.createElement('li');
-            li.textContent = `${sub.name} — ${sub.next_payment_date} (${sub.price} ${sub.currency})`;
+            li.textContent = `${sub.name} — ${formatDate(sub.next_payment_date)} (${sub.price} ${sub.currency})`;
             list.appendChild(li);
         });
     } catch (err) {
@@ -63,9 +68,9 @@ async function loadSubscriptions() {
             const div = document.createElement('div');
             div.innerHTML = `
                 <p>
-                    <strong>${sub.name}</strong> — ${sub.category} — ${sub.price} ${sub.currency} / ${sub.billing_cycle}
+                    <strong>${sub.name}</strong> — ${sub.category} — ${sub.price} ${sub.currency} / ${t(sub.billing_cycle)}
                     <br>
-                    ${t('nextPayment')}: ${sub.next_payment_date}
+                    ${t('nextPayment')}: ${formatDate(sub.next_payment_date)}
                     ${sub.is_active ? '' : ' [' + t('inactive') + ']'}
                     <br>
                     <a href="subscription-form.html?id=${sub.id}">${t('edit')}</a>

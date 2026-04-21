@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subscription Tracker - Forma</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div>
+        <a href="dashboard.html"><button>← <span data-i18n="dashboard">Suvestinė</span></button></a>
+        <button onclick="setLang('lt')">LT</button>
+        <button onclick="setLang('en')">EN</button>
+        <button onclick="logout()" data-i18n="logout">Atsijungti</button>
+    </div>
+
+    <hr>
+
+    <h2 id="form-title" data-i18n="newSubscription">Nauja prenumerata</h2>
+
+    <div id="error-msg" class="hidden">
+        <p id="error-text"></p>
+    </div>
+
+    <form id="subscription-form">
+        <div>
+            <label data-i18n="name">Pavadinimas</label><br>
+            <input type="text" id="name" required>
+        </div>
+        <br>
+        <div>
+            <label data-i18n="category">Kategorija</label><br>
+            <select id="category" required>
+                <option value="Streaming">Streaming</option>
+                <option value="Music">Music</option>
+                <option value="Productivity">Productivity</option>
+                <option value="Gaming">Gaming</option>
+                <option value="Fitness">Fitness</option>
+                <option value="Other">Other</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <label data-i18n="price">Kaina</label><br>
+            <input type="number" id="price" step="0.01" min="0" required>
+        </div>
+        <br>
+        <div>
+            <label data-i18n="currency">Valiuta</label><br>
+            <select id="currency">
+                <option value="EUR">EUR</option>
+                <option value="USD">USD</option>
+                <option value="GBP">GBP</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <label data-i18n="billingCycle">Mokėjimo ciklas</label><br>
+            <select id="billing_cycle" required>
+                <option value="monthly" data-i18n="monthly">Mėnesinis</option>
+                <option value="yearly" data-i18n="yearly">Metinis</option>
+                <option value="weekly" data-i18n="weekly">Savaitinis</option>
+            </select>
+        </div>
+        <br>
+        <div>
+            <label data-i18n="nextPayment">Kitas mokėjimas</label><br>
+            <input type="date" id="next_payment_date" required>
+        </div>
+        <br>
+        <div>
+            <label data-i18n="active">Aktyvi</label><br>
+            <input type="checkbox" id="is_active" checked>
+        </div>
+        <br>
+        <div>
+            <label data-i18n="notes">Pastabos</label><br>
+            <textarea id="notes" rows="3"></textarea>
+        </div>
+        <br>
+        <button type="submit" data-i18n="save">Išsaugoti</button>
+        <a href="dashboard.html"><button type="button" data-i18n="cancel">Atšaukti</button></a>
+    </form>
+
+    <script src="js/translations.js"></script>
+    <script src="js/language.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/subscription.js"></script>
+</body>
+</html>

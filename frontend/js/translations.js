@@ -36,7 +36,13 @@ const translations = {
         errorGeneral: 'Įvyko klaida',
         editSubscription: 'Redaguoti prenumeratą',
         newSubscription: 'Nauja prenumerata',
-        daysLeft: 'dienų'
+        daysLeft: 'dienų',
+        catStreaming: 'Srautinis',
+        catMusic: 'Muzika',
+        catProductivity: 'Produktyvumas',
+        catGaming: 'Žaidimai',
+        catFitness: 'Sveikata',
+        catOther: 'Kita'
     },
     en: {
         appName: 'Subscription Tracker',
@@ -75,6 +81,12 @@ const translations = {
         errorGeneral: 'An error occurred',
         editSubscription: 'Edit subscription',
         newSubscription: 'New subscription',
-        daysLeft: 'days'
+        daysLeft: 'days',
+        catStreaming: 'Streaming',
+        catMusic: 'Music',
+        catProductivity: 'Productivity',
+        catGaming: 'Gaming',
+        catFitness: 'Fitness',
+        catOther: 'Other'
     }
 };
